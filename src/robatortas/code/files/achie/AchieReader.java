@@ -21,9 +21,16 @@ public class AchieReader {
 	final String PATH;
 	final File FILE;
 	
+	final String[] initialCharacters = {
+			"<",
+			"[",
+			"#"
+	};
+	
 	public AchieReader(String path) {
 		this.PATH = path;
 		this.FILE = new File(path);
+		
 		if(!FILE.exists()) {
 			System.err.println("Specified path does not exists.");
 			System.exit(0);
@@ -35,7 +42,6 @@ public class AchieReader {
 		try {
 			List<String> contents = Files.readAllLines(path);
 			return contents;
-//			System.out.println(contents);
 		} catch (IOException e) {
 			System.err.println("Unable to read file!");
 			e.printStackTrace();
@@ -67,7 +73,35 @@ public class AchieReader {
 	 * 
 	 * @param key The name of the key.
 	 */
-	public void getKeyValue(String key) {
+	@SuppressWarnings("unchecked")
+	public <T> T getKeyValue(String key) {
+		List<String> contents = read();
 		
+		String line = "";
+		
+		String result = null;
+		
+		for(int i = 0; i < contents.size(); i++) {
+			line = contents.get(i).trim();
+
+			if(line.startsWith("#")) line = "";
+			
+			// TRUE IF IT'S A KEY.
+			if(line.startsWith(this.initialCharacters[0])) {
+				
+			}
+			
+			System.out.println(line);
+		}
+		return (T) result;
+	}
+	
+	private String getInitialCharacters(String line) {
+		for(int i = 0; i < this.initialCharacters.length; i++) {
+			if(line.startsWith(this.initialCharacters[i].toString())) {
+				return initialCharacters[i].toString();
+			}
+		}
+		return "";
 	}
 }

@@ -4,8 +4,16 @@ import robatortas.code.files.achie.AchieReader;
 
 public class MainApp {
 	
+	static AchieReader aReader;
+	
 	public static void main(String[] args) {
 		System.out.println("Hello Achie!");
-		new AchieReader("test.achie").read();
+		aReader = new AchieReader("test.achie");
+		
+		tester();
+	}
+	
+	public static void tester() {
+		aReader.<Integer>getKeyValue("grass");
 	}
 }
