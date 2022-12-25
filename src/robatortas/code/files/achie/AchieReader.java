@@ -25,16 +25,17 @@ public class AchieReader {
 			"<",
 			"[",
 			"{",
+			":",
 			"#"
 	};
 	
 	final String[] endingCharacters = {
 			">",
 			"]",
+			"}",
 			";",
-			","
-			""
-	}
+			",",
+	};
 	
 	public AchieReader(String path) {
 		this.PATH = path;
@@ -68,7 +69,7 @@ public class AchieReader {
 	 * 
 	 * @param key The name of the key.
 	 */
-	public <T> T getKeyName(String key) {
+	public String getKeyName(String key) {
 		List<String> contents = read();
 		
 		String line = "";
@@ -82,15 +83,15 @@ public class AchieReader {
 			
 			// TRUE IF IT'S A KEY.
 			if(line.startsWith(this.initialCharacters[0])) {
-				line = line.substring(line.lastIndexOf("<")+1, line.lastIndexOf(">"));
-				
+				line = line.substring(line.lastIndexOf(initialCharacters[0])+1, line.lastIndexOf(endingCharacters[0]));
 				if(line.equals(key)) {
 					result = line;
-					return (T) result;
+					return result;
 				}
 			}
 		}
-		return (T) result;
+		if(key != result) System.out.println("No such key with the name of " + "\"" + key +"\"");
+		return result;
 	}
 	
 	/** <NEWLINE>
@@ -98,8 +99,11 @@ public class AchieReader {
 	 * <br><br>
 	 * 
 	 * Gets the value of the indicated key.
+	 * <br>
+	 * Use the key parameter to identify the key.
 	 * <br><br>
-	 * Uses the key parameter to identify the key.
+	 * 
+	 * <b>USES GENERICS</b>
 	 * 
 	 * @param key The name of the key.
 	 */
@@ -108,24 +112,26 @@ public class AchieReader {
 		List<String> contents = read();
 		
 		String line = "";
-		
+		String keyName = "";
 		String result = "";
 		
 		for(int i = 0; i < contents.size(); i++) {
 			line = contents.get(i).trim();
 
+			// IGNORES COMMENTS
 			if(line.startsWith("#")) line = "";
 			
-			// TRUE IF IT'S A KEY.
 			if(line.startsWith(this.initialCharacters[0])) {
-				line = line.substring(line.lastIndexOf(":"), line.lastIndexOf(">"));
+				keyName = line.substring(line.lastIndexOf(initialCharacters[0])+1, line.lastIndexOf(endingCharacters[0]));
+				line = line.substring(line.lastIndexOf(this.initialCharacters[3])+1, line.lastIndexOf(";")).trim();
 				
-				if(line.equals(key)) {
+				if(keyName.equals(key)) {
 					result = line;
 					return (T) result;
 				}
 			}
 		}
+		if(key != result) System.out.println("Unable to find value of " + "\"" + key +"\"" + " key");
 		return (T) result;
 	}
 	
@@ -133,6 +139,16 @@ public class AchieReader {
 		for(int i = 0; i < this.initialCharacters.length; i++) {
 			if(line.startsWith(this.initialCharacters[i].toString())) {
 				return initialCharacters[i].toString();
+			}
+		}
+		return "";
+	}
+	
+	private String getEndingCharacters(String line) {
+		for(int i = 0; i < this.endingCharacters.length; i++) {
+			if(Character.toString(line.charAt(line.lastIndexOf(this.endingCharacters[i].toString()))).equals(this.endingCharacters[i].toString())) {
+				System.out.println("ENDING" + endingCharacters[i].toString());
+				return endingCharacters[i].toString();
 			}
 		}
 		return "";
