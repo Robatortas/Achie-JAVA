@@ -24,8 +24,17 @@ public class AchieReader {
 	final String[] initialCharacters = {
 			"<",
 			"[",
+			"{",
 			"#"
 	};
+	
+	final String[] endingCharacters = {
+			">",
+			"]",
+			";",
+			","
+			""
+	}
 	
 	public AchieReader(String path) {
 		this.PATH = path;
@@ -59,8 +68,29 @@ public class AchieReader {
 	 * 
 	 * @param key The name of the key.
 	 */
-	public void getKeyName(String key) {
+	public <T> T getKeyName(String key) {
+		List<String> contents = read();
 		
+		String line = "";
+		
+		String result = "";
+		
+		for(int i = 0; i < contents.size(); i++) {
+			line = contents.get(i).trim();
+
+			if(line.startsWith("#")) line = "";
+			
+			// TRUE IF IT'S A KEY.
+			if(line.startsWith(this.initialCharacters[0])) {
+				line = line.substring(line.lastIndexOf("<")+1, line.lastIndexOf(">"));
+				
+				if(line.equals(key)) {
+					result = line;
+					return (T) result;
+				}
+			}
+		}
+		return (T) result;
 	}
 	
 	/** <NEWLINE>
@@ -79,7 +109,7 @@ public class AchieReader {
 		
 		String line = "";
 		
-		String result = null;
+		String result = "";
 		
 		for(int i = 0; i < contents.size(); i++) {
 			line = contents.get(i).trim();
@@ -88,10 +118,13 @@ public class AchieReader {
 			
 			// TRUE IF IT'S A KEY.
 			if(line.startsWith(this.initialCharacters[0])) {
+				line = line.substring(line.lastIndexOf(":"), line.lastIndexOf(">"));
 				
+				if(line.equals(key)) {
+					result = line;
+					return (T) result;
+				}
 			}
-			
-			System.out.println(line);
 		}
 		return (T) result;
 	}

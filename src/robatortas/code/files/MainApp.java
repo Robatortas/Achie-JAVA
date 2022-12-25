@@ -14,6 +14,6 @@ public class MainApp {
 	}
 	
 	public static void tester() {
-		aReader.<Integer>getKeyValue("grass");
+		System.out.println(aReader.<Integer>getKeyValue("grass"));
 	}
 }
