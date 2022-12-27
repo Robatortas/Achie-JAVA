@@ -16,7 +16,7 @@ public class MainApp {
 	public static void tester() {
 //		System.out.println(aReader.getKeyName("bed"));
 //		int a = aReader.getKeyValue("grass");
-		System.out.println(aReader.<String>getKeyValue("bed"));
+//		System.out.println(aReader.<String>getKeyValue("bed"));
 		
 		
 	}

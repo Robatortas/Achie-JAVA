@@ -2,12 +2,12 @@ package robatortas.code.files.achie;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.stream.Stream;
+
+import robatortas.code.files.utils.StringUtils;
 
 /** <NEWLINE>
  * <b><i>AchieReader class</i></b>
@@ -43,6 +43,9 @@ public class AchieReader {
 		this.PATH = path;
 		this.FILE = new File(path);
 		
+//		new Interpreter(StringUtils.stringListToString(read())).stringToLineList();
+		System.out.println(StringUtils.stringToLineList(StringUtils.stringListToString(read())));
+		
 		if(!FILE.exists()) {
 			System.err.println("Specified path does not exists.");
 			System.exit(0);
@@ -60,13 +63,6 @@ public class AchieReader {
 		}
 		return null;
 	}
-	
-	static String readFile(String path, Charset encoding)
-			  throws IOException
-			{
-			  byte[] encoded = Files.readAllBytes(Paths.get(path));
-			  return new String(encoded, encoding);
-			}
 
 	
 	/** <NEWLINE>
