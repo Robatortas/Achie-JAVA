@@ -1,12 +1,12 @@
-## DOCS
-<p style="text-align: center">
+# DOCS
+<p align=center>
 This is the docs page, where you can learn all about Achie's syntax.
 
 Here, you will be able to learn how Achie's syntax works, and how you can use
 it to store data with ease. 
 </p>
 
-# VARIABLES
+## VARIABLES
 
 Achie enables the use of making variables and storing data inside them.
 
