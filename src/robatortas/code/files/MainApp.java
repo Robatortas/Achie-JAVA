@@ -17,5 +17,7 @@ public class MainApp {
 //		System.out.println(aReader.getKeyName("bed"));
 //		int a = aReader.getKeyValue("grass");
 		System.out.println(aReader.<String>getKeyValue("bed"));
+		
+		
 	}
 }
