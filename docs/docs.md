@@ -1,10 +1,12 @@
-# DOCS
-<p align=center>
-This is the docs page, where you can learn all about Achie's syntax.
+# <div align=center>DOCS</div>
+<div align=center>
+  This is the docs page, where you can learn all about Achie's syntax.
 
-Here, you will be able to learn how Achie's syntax works, and how you can use
-it to store data with ease. 
-</p>
+  Here, you will learn how Achie's syntax works, and how you can use it to store data with ease.
+  
+  
+  (Achie is still in early stages of development, and is maintained by one guy, so please understand the slow progress!)
+</div>
 
 ## VARIABLES
 
