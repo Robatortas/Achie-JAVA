@@ -12,10 +12,10 @@
 
 Achie enables the use of making variables and storing data inside them.
 
-There are two types of variables, the single-data variables and the multi-data variables.
+There are two types of variables, keys and keychains.
 
-### Single-Data Variables:
+### Keys:
 They can store one type of data, like strings, characters, booleans, and any type of number (int, float, short, etc).
 
-### Multi-Data Variables:
+### KeyChains:
 They can store one or more variables inside them.

@@ -1,0 +1,11 @@
+12/28/22 3:32 AM {
+	
+	Writing a lot of documentation comments
+	and giving the classes some structure.
+	
+	
+	I will probably need to implement a binary tree to be able
+	to sort all the contents inside a KeyChain, to make it hierarchical (I ALSO MAKE SPELLING MISTAKES LIKE ANY OTHER HUMAN!),
+	so that will be a little pain, but no worries!
+}
+// NEXT DATE HERE!
