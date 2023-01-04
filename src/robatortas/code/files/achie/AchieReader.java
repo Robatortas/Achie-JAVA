@@ -7,8 +7,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-import robatortas.code.files.utils.StringUtils;
-
 /** <NEWLINE>
  * <b><i>AchieReader class</i></b>
  * <br><br>

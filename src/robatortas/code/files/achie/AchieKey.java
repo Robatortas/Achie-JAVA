@@ -35,6 +35,31 @@ public class AchieKey {
 		
 //		this.fileContents = StringUtils.stringListToString(new AchieReader(MainApp.path).read());
 		this.fileContents = new AchieReader(MainApp.path).read();
+		
+		this.fileContents = ignoreComments(fileContents);
+	}
+	
+	/** <NEWLINE>
+	 * <b>ignoreComments function in AchieKey class</b>
+	 * <br><br>
+	 * Ignores and returns the contents of the file without comments.
+	 * @param fileContents The contents of the file in a string form.
+	 */
+	public List<String> ignoreComments(List<String>fileContents) {
+		List<String> result = new LinkedList<String>();
+		
+		String line = null;
+		boolean isComment = false;
+		for(int i = 0; i < fileContents.size(); i++) {
+			line = fileContents.get(i).trim();
+			
+			if(line.startsWith("#")) { 
+				isComment = true;
+			} else isComment = false;
+			
+			if(!isComment) result.add(line+"\n");
+		}
+		return result;
 	}
 	
 	/** <NEWLINE>
@@ -58,16 +83,8 @@ public class AchieKey {
 		String potentialKey;
 		
 		for(int i = 0; i < fileContents.size(); i++) {
-			line = fileContents.get(i).trim();
-//			if(i > 1 && i < fileContents.size()) System.out.println(line.charAt(0));
-			System.out.println(line.charAt(0));
-//			if(line.charAt(0) == SyntaxCharacters.START_VARIABLE && line.charAt(0+key.length()) == SyntaxCharacters.END_VARIABLE) {
-//				potentialKey = line.substring(line.indexOf(SyntaxCharacters.START_VARIABLE + key), line.indexOf(key + SyntaxCharacters.END_VARIABLE));
-//				
-//				System.out.println(potentialKey);
-//			}
+			
 		}
-//		System.out.println(line);
 	}
 	
 	/** <NEWLINE>
