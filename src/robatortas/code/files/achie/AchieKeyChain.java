@@ -27,6 +27,8 @@ public class AchieKeyChain {
 	// THIS WILL PROBABLY RETURN A GENERIC! (I FEEL LAZY TO IDENTIFY NUMBERS AND STRINGS AND STUFF, AND PARSE THEM!)
 	public void getKeyValue(String key) {
 		this.key = key;
+		
+		
 	}
 	
 	/** <NEWLINE>

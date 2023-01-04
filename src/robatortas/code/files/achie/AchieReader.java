@@ -23,6 +23,7 @@ public class AchieReader {
 	final String PATH;
 	final File FILE;
 	
+	// KEEPING THESE ARRAYS TEMPORARILY (WILL DELETE THEM SOON!)
 	final String[] initialCharacters = {
 			"<",
 			"[",
@@ -43,15 +44,19 @@ public class AchieReader {
 		this.PATH = path;
 		this.FILE = new File(path);
 		
-//		new Interpreter(StringUtils.stringListToString(read())).stringToLineList();
-		System.out.println(StringUtils.stringToLineList(StringUtils.stringListToString(read())));
-		
 		if(!FILE.exists()) {
 			System.err.println("Specified path does not exists.");
 			System.exit(0);
 		} else System.out.println("File by the name of " + "\"" + FILE.getName() + "\"" + " found");
 	}
 	
+	/** <NEWLINE>
+	 * <b>read function in AchieReader class</b>
+	 * <br><br>
+	 * Reads the achie file specified.
+	 * <br><br>
+	 * <b><i>Note that if path equals null, it will throw an error!</i></b>
+	 */
 	public List<String> read() {
 		Path path = Paths.get(PATH);
 		try {
@@ -75,7 +80,8 @@ public class AchieReader {
 	 * 
 	 * @param key The name of the key.
 	 */
-	public String getKeyName(String key) {
+	@Deprecated
+	private String getKeyName(String key) {
 		List<String> contents = read();
 		
 		String line = "";
@@ -114,6 +120,7 @@ public class AchieReader {
 	 * @param key The name of the key.
 	 */
 	@SuppressWarnings("unchecked")
+	@Deprecated
 	public <T> T getKeyValue(String key) {
 		List<String> contents = read();
 		

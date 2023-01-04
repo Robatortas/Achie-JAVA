@@ -17,6 +17,14 @@ public class StringUtils {
 		return result;
 	}
 	
+	public static String stringListToSingleLinedString(List<String> list) {
+		String result = "";
+		for(int i = 0; i < list.size(); i++) {
+			result += list.get(i);
+		}
+		return result;
+	}
+	
 	public static List<String> stringToLineList(String fileContents) {
 		List<String> list = new LinkedList<String>();
 		String line = "";

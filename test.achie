@@ -1,4 +1,6 @@
-# ID COMMENT!
+# THIS IS AN ACHIE TEST PLAYGROUND!
+
+# KeyChain Example
 <ID>: {
 	<void>: 0;
 	<grass>: 1;
@@ -21,3 +23,8 @@
 	<chair>: 18;
 	<bed>: 19;
 };
+
+# Key example
+<Robatortas>: "I AM ROBATORTAS!";
+
+# END

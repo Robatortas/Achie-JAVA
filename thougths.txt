@@ -7,5 +7,11 @@
 	I will probably need to implement a binary tree to be able
 	to sort all the contents inside a KeyChain, to make it hierarchical (I ALSO MAKE SPELLING MISTAKES LIKE ANY OTHER HUMAN!),
 	so that will be a little pain, but no worries!
+	
+	Keys are incredibly easy to implement really, I already have them done!
+	The big problem is the KeyChains!!! fawwwkkk.
+	
+	if two keys are in one line, it will separate them to be each in a different line!
+	so after a semicolon, it will put everything else after it in another line. (SMART!)
 }
 // NEXT DATE HERE!
