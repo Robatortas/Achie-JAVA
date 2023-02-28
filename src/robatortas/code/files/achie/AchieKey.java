@@ -37,6 +37,8 @@ public class AchieKey {
 		
 //		this.fileContents = StringUtils.stringListToString(new AchieReader(MainApp.path).read());
 		this.fileContents = new AchieReader(MainApp.path).read();
+		
+		System.out.println(fileContents);
 	}
 	
 	/** <NEWLINE>
@@ -57,6 +59,7 @@ public class AchieKey {
 		String potentialKey;
 		
 		for(int i = 0; i < fileContents.size(); i++) {
+<<<<<<< HEAD
 			line = fileContents.get(i).trim();
 			this.currentChara = i;
 			
@@ -76,8 +79,10 @@ public class AchieKey {
 //				
 //				System.out.println(potentialKey);
 //			}
+=======
+			
+>>>>>>> 46207fd543b6aa113985bbc4ab7013a3ed3cd52c
 		}
-//		System.out.println(line);
 	}
 	
 	/** <NEWLINE>

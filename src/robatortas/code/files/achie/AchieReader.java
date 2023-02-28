@@ -5,9 +5,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.LinkedList;
 import java.util.List;
-
-import robatortas.code.files.utils.StringUtils;
 
 /** <NEWLINE>
  * <b><i>AchieReader class</i></b>
@@ -61,6 +60,10 @@ public class AchieReader {
 		Path path = Paths.get(PATH);
 		try {
 			List<String> contents = Files.readAllLines(path);
+			
+			// CHECKS DONE FOR READYING THE ACHIE FILE FOR READING AND WRITING.
+			contents = ignoreComments(contents);
+			
 			return contents;
 		} catch (IOException e) {
 			System.err.println("Unable to read file!");
@@ -69,6 +72,28 @@ public class AchieReader {
 		return null;
 	}
 
+	/** <NEWLINE>
+	 * <b>ignoreComments function in AchieReader class</b>
+	 * <br><br>
+	 * Ignores and returns the contents of the file without comments.
+	 * @param fileContents The contents of the file in a string form.
+	 */
+	public List<String> ignoreComments(List<String>fileContents) {
+		List<String> result = new LinkedList<String>();
+		
+		String line = null;
+		boolean isComment = false;
+		for(int i = 0; i < fileContents.size(); i++) {
+			line = fileContents.get(i).trim();
+			
+			if(line.startsWith("#")) { 
+				isComment = true;
+			} else isComment = false;
+			
+			if(!isComment) result.add(line+"\n");
+		}
+		return result;
+	}
 	
 	/** <NEWLINE>
 	 * getKeyName function

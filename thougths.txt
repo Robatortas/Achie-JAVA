@@ -15,3 +15,12 @@
 	so after a semicolon, it will put everything else after it in another line. (SMART!)
 }
 // NEXT DATE HERE!
+
+1/3/23 5:22 PM {
+	
+	Thinking about how the keys will be read in achie.
+	
+	Soo.... The easiest way to do so would be the following:
+	
+	- Since keys are just one line of code each.
+}
