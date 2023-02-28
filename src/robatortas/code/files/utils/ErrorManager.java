@@ -2,9 +2,7 @@ package robatortas.code.files.utils;
 
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
+import java.awt.GridLayout;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -20,8 +18,9 @@ public class ErrorManager {
 	int w = 350, h = 150;
 	Dimension size = new Dimension(w, h);
 	
+	GridLayout layout;
+	
 	JPanel panel;
-	GridBagConstraints gbc = new GridBagConstraints();
 	
 	List<JTextArea> texts = new LinkedList<JTextArea>();
 	
@@ -57,12 +56,11 @@ public class ErrorManager {
 		gui();
 		panel.setSize(size);
 //		panel.setBackground(new Color(86, 86, 86));
+		
+		this.layout = new GridLayout(3, 0);
+		panel.setLayout(layout);
+		
 		panel.setVisible(true);
-		
-		panel.setLayout(new GridBagLayout());
-		
-//		gbc.gridheight = 10;
-		
 		
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -89,14 +87,13 @@ public class ErrorManager {
 		title.setBounds(100, 5, this.w, this.h);
 		title.setText("ERROR");
 		
-
 		fontSize = 15;
 		
 		info.setBounds(10, 40, this.w, this.h);
 		info.setFont(new Font("Arial", 0, 15));
 		info.setText(type.type);
 		
-		ok.setSize(50, 70);
+		ok.setBounds(0, 0, 50, 70);
 		ok.setFocusable(false);
 		
 		ok.addActionListener(e -> {
@@ -104,9 +101,9 @@ public class ErrorManager {
 			System.exit(0);
 		});
 		
-		panel.add(title, gbc);
-		panel.add(info, gbc);
-		panel.add(ok, gbc);
+		panel.add(title);
+		panel.add(info);
+		panel.add(ok);
 	}
 	
 	/**<NEWLINE>
