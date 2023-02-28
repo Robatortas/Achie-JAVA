@@ -1,6 +1,8 @@
 package robatortas.code.files;
 
 import robatortas.code.files.achie.AchieKey;
+import robatortas.code.files.utils.ErrorManager;
+import robatortas.code.files.utils.ErrorManager.ErrorType;
 
 public class MainApp {
 	
@@ -10,6 +12,8 @@ public class MainApp {
 	public static void main(String[] args) {
 		System.out.println("Hello Achie!");
 		
+		new ErrorManager(new Throwable(), "ERROR!", ErrorType.HANDLED);
+//		new ErrorManager();
 		tester();
 	}
 	

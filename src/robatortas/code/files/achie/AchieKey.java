@@ -26,6 +26,8 @@ public class AchieKey {
 	long endingChara;
 	// Checks to see if key has been found.
 	boolean found;
+	// Data type queried.
+	String dataType;
 	
 	public AchieKey() {
 		this.currentChara = 0;
@@ -50,17 +52,25 @@ public class AchieKey {
 		findKeyValue(key);
 	}
 	
-	public void findKey(String key) {
-		
-	}
 	private void findKeyValue(String key) {
 		String line = "";
 		String potentialKey;
 		
 		for(int i = 0; i < fileContents.size(); i++) {
 			line = fileContents.get(i).trim();
+			this.currentChara = i;
+			
+			// CHECKS AND REMOVES COMMENTS
+			if(line.startsWith("#")) {
+				line = "";
+			}
+			
+//			findKey(key);
+			
+			System.out.println(line);
+			
 //			if(i > 1 && i < fileContents.size()) System.out.println(line.charAt(0));
-			System.out.println(line.charAt(0));
+//			System.out.println(line.charAt(0));
 //			if(line.charAt(0) == SyntaxCharacters.START_VARIABLE && line.charAt(0+key.length()) == SyntaxCharacters.END_VARIABLE) {
 //				potentialKey = line.substring(line.indexOf(SyntaxCharacters.START_VARIABLE + key), line.indexOf(key + SyntaxCharacters.END_VARIABLE));
 //				
@@ -68,6 +78,35 @@ public class AchieKey {
 //			}
 		}
 //		System.out.println(line);
+	}
+	
+	/** <NEWLINE>
+	 * <b>findKey function in AchieKey class</b>
+	 * <br><br>
+	 * Finds the give key.
+	 * 
+	 * @param key The key that is being queried.
+	 * @param queriedData The data you want to query.
+	*/
+	private void findKeyData(String key, String queriedData) {
+		String data = queriedData.trim().toLowerCase();
+		
+		String[] types = {
+				"name",
+				"value"
+		};
+		
+		for(int i = 0; i < types.length; i++) {
+			String type = types[i].toLowerCase();
+			if(data == type) continue;
+			
+			switch(types[i]) {
+			case "name": this.dataType = types[0];
+			case "value": this.dataType = types[1];
+			}
+		}
+		
+		System.err.println("UNABLE TO FIND QUERIED KEY DATA.");
 	}
 	
 	/** <NEWLINE>
@@ -81,17 +120,26 @@ public class AchieKey {
 		return key;
 	}
 	
-	public long postChara() {
+	public long getPostChara() {
 		return this.currentChara += 1;
 	}
 	
-	public long previousChara() {
+	public long getPreviousChara() {
 		return this.currentChara -= 1;
+	}
+	
+	public long getCurrentChara() {
+		return this.currentChara;
 	}
 	
 	// WILL RETURN TRUE ONCE THE END OF THE KEY VARIABLE IS REACHED
 	public boolean keyEnded() {
 		return false;
+	}
+	
+	// Returns the data type queried.
+	public String getDataType() {
+		return this.dataType;
 	}
 	
 	public long endOfKeyIndex() {
