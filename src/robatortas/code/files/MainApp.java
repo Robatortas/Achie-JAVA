@@ -12,7 +12,7 @@ public class MainApp {
 	public static void main(String[] args) {
 		System.out.println("Hello Achie!");
 		
-		new ErrorManager(new Throwable(), "ERROR!", ErrorType.HANDLED);
+//		new ErrorManager(new Throwable(), "ERROR!", ErrorType.HANDLED);
 //		new ErrorManager();
 		tester();
 	}

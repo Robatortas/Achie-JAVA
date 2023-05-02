@@ -55,17 +55,21 @@ public class AchieKey {
 	}
 	
 	private void findKeyValue(String key) {
+		// The file in a string format
 		String line = "";
 		String potentialKey;
 		
+		line = comRemover();
 		for(int i = 0; i < fileContents.size(); i++) {
-			line = fileContents.get(i).trim();
+			
 			this.currentChara = i;
 			
-			// CHECKS AND REMOVES COMMENTS
-			if(line.startsWith("#")) {
-				line = "";
-			}
+			
+			
+//			// CHECKS AND REMOVES COMMENTS
+//			if(line.startsWith("#")) {
+//				line = "";
+//			}
 			
 //			findKey(key);
 			
@@ -79,6 +83,24 @@ public class AchieKey {
 //				System.out.println(potentialKey);
 //			}
 		}
+	}
+	
+	/** <NEWLINE>
+	 * <b>comRemover function in AchieKey class</b>
+	 * <br><br>
+	 * Removes comments from the file.
+	 */
+	private String comRemover() {
+		String line;
+		for(int i = 0; i < fileContents.size(); i++) {
+			line = fileContents.get(i);
+			
+			if(line.startsWith("#")) {
+				line = "";
+				return line;
+			}
+		}
+		return null;
 	}
 	
 	/** <NEWLINE>
