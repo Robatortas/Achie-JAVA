@@ -1,5 +1,7 @@
 package robatortas.code.files.achie;
 
+// DEPRECATED CLASS FOR NOW
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -86,7 +88,7 @@ public class AchieReader {
 		for(int i = 0; i < fileContents.size(); i++) {
 			line = fileContents.get(i).trim();
 			
-			if(line.startsWith("#")) { 
+			if(line.startsWith(Character.toString(SyntaxCharacters.COMMENT))) { 
 				isComment = true;
 			} else isComment = false;
 			

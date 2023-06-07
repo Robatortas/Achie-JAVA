@@ -38,7 +38,7 @@ public class AchieKey {
 //		this.fileContents = StringUtils.stringListToString(new AchieReader(MainApp.path).read());
 		this.fileContents = new AchieReader(MainApp.path).read();
 		
-		System.out.println(fileContents);
+		//System.out.println(fileContents);
 	}
 	
 	/** <NEWLINE>
@@ -62,12 +62,7 @@ public class AchieKey {
 			line = fileContents.get(i).trim();
 			this.currentChara = i;
 			
-			// CHECKS AND REMOVES COMMENTS
-			if(line.startsWith("#")) {
-				line = "";
-			}
-			
-//			findKey(key);
+			findKeyData(key, "value");
 			
 			System.out.println(line);
 			
@@ -79,35 +74,48 @@ public class AchieKey {
 //				System.out.println(potentialKey);
 //			}
 		}
+		
+		System.out.println("Your selected datatype is: " + this.dataType);
 	}
 	
 	/** <NEWLINE>
 	 * <b>findKey function in AchieKey class</b>
 	 * <br><br>
 	 * Finds the give key.
+	 * <br>
+	 * <i>Basically, finds the location of the key.<i>
+	 * 
+	 * @param key The key that is being queried.
+	*/
+	private String findKey(String key) {
+		
+		return null;
+	}
+	
+	/** <NEWLINE>
+	 * <b>findKeyData function in AchieKey class</b>
+	 * <br><br>
+	 * Finds the give key data.
 	 * 
 	 * @param key The key that is being queried.
 	 * @param queriedData The data you want to query.
 	*/
-	private void findKeyData(String key, String queriedData) {
+	private String findKeyData(String key, String queriedData) {
 		String data = queriedData.trim().toLowerCase();
 		
 		String[] types = {
-				"name",
+				"name", /* name is basically the key! */
 				"value"
 		};
 		
 		for(int i = 0; i < types.length; i++) {
 			String type = types[i].toLowerCase();
-			if(data == type) continue;
-			
-			switch(types[i]) {
-			case "name": this.dataType = types[0];
-			case "value": this.dataType = types[1];
+			if(data == type) {
+				this.dataType = data;
 			}
 		}
 		
-		System.err.println("UNABLE TO FIND QUERIED KEY DATA.");
+		return this.dataType;
 	}
 	
 	/** <NEWLINE>
