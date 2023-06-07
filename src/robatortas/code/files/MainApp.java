@@ -12,7 +12,11 @@ public class MainApp {
 	public static void main(String[] args) {
 		System.out.println("Hello Achie!");
 		
+<<<<<<< HEAD
 		//new ErrorManager(new Throwable(), "ERROR!", ErrorType.HANDLED);
+=======
+//		new ErrorManager(new Throwable(), "ERROR!", ErrorType.HANDLED);
+>>>>>>> 608e11da72d3c59478427e397fd64e2a07528d0a
 //		new ErrorManager();
 		tester();
 	}

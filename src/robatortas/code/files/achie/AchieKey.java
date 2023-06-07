@@ -55,14 +55,27 @@ public class AchieKey {
 	}
 	
 	private void findKeyValue(String key) {
+		// The file in a string format
 		String line = "";
 		String potentialKey;
 		
+		line = comRemover();
 		for(int i = 0; i < fileContents.size(); i++) {
-			line = fileContents.get(i).trim();
+			
 			this.currentChara = i;
 			
+<<<<<<< HEAD
 			findKeyData(key, "value");
+=======
+			
+			
+//			// CHECKS AND REMOVES COMMENTS
+//			if(line.startsWith("#")) {
+//				line = "";
+//			}
+			
+//			findKey(key);
+>>>>>>> 608e11da72d3c59478427e397fd64e2a07528d0a
 			
 			System.out.println(line);
 			
@@ -76,6 +89,24 @@ public class AchieKey {
 		}
 		
 		System.out.println("Your selected datatype is: " + this.dataType);
+	}
+	
+	/** <NEWLINE>
+	 * <b>comRemover function in AchieKey class</b>
+	 * <br><br>
+	 * Removes comments from the file.
+	 */
+	private String comRemover() {
+		String line;
+		for(int i = 0; i < fileContents.size(); i++) {
+			line = fileContents.get(i);
+			
+			if(line.startsWith("#")) {
+				line = "";
+				return line;
+			}
+		}
+		return null;
 	}
 	
 	/** <NEWLINE>

@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -15,10 +16,10 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 public class ErrorManager {
 	
-	int w = 350, h = 150;
+	int w = 350, h = 160;
 	Dimension size = new Dimension(w, h);
 	
-	GridLayout layout;
+	BoxLayout layout;
 	
 	JPanel panel;
 	
@@ -46,22 +47,19 @@ public class ErrorManager {
 		
 		this.panel = new JPanel();
 		
-		frame.setTitle("ACHIE: ERROR");
+		frame.setTitle("ACHIE: ERROR!");
 		frame.setSize(size);
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
-//		frame.pack();
-
-		frame.add(panel);
 		gui();
 		panel.setSize(size);
-//		panel.setBackground(new Color(86, 86, 86));
 		
-		this.layout = new GridLayout(3, 0);
+		this.layout = new BoxLayout(panel, 1);
 		panel.setLayout(layout);
-		
 		panel.setVisible(true);
 		
+//		frame.setLayout(null);
+		frame.add(panel);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
@@ -69,7 +67,6 @@ public class ErrorManager {
 	void gui() {
 		JTextArea title = new JTextArea();
 		JTextArea info = new JTextArea();
-		JButton ok = new JButton("ok");
 		
 		this.texts.add(title);
 		this.texts.add(info);
@@ -93,7 +90,10 @@ public class ErrorManager {
 		info.setFont(new Font("Arial", 0, 15));
 		info.setText(type.type);
 		
-		ok.setBounds(0, 0, 50, 70);
+		JButton ok = new JButton("ok");
+//		ok.setPreferredSize(new Dimension(10, 10));
+		ok.setBounds(0, -20, 0, 0);
+		ok.setFont(new Font("Arial", 0, 13));
 		ok.setFocusable(false);
 		
 		ok.addActionListener(e -> {
