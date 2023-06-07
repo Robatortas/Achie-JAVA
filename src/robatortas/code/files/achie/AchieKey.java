@@ -64,18 +64,8 @@ public class AchieKey {
 			
 			this.currentChara = i;
 			
-<<<<<<< HEAD
 			findKeyData(key, "value");
-=======
-			
-			
-//			// CHECKS AND REMOVES COMMENTS
-//			if(line.startsWith("#")) {
-//				line = "";
-//			}
-			
-//			findKey(key);
->>>>>>> 608e11da72d3c59478427e397fd64e2a07528d0a
+
 			
 			System.out.println(line);
 			
